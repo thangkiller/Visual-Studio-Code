@@ -1,0 +1,11 @@
+.wrapper {
+  height: 78px;
+  background-color: var(--base-background-color);
+  display: flex;
+  .inner {
+    margin: auto;
+    height: 100%;
+    width: var(--content-width);
+    background-color: #ccc;
+  }
+}
