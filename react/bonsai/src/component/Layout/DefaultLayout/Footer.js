@@ -171,7 +171,18 @@ const $ = styles;
 function Footer() {
   return (
     <div className={$.wrapper}>
-      <div className={$.inner}>ffoer</div>
+      {footer.map( (group, index) => {
+        return (
+          <div key={index} >
+            <h3>{group.name}</h3>
+            {group.navies.map((navi, index) => {
+              return (
+                <Link to={navi.link}>{navi.name}</Link>
+              )
+            })}
+          </div>
+        )
+      })}
     </div>
   );
 }
