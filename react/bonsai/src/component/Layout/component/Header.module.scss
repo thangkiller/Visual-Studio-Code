@@ -90,3 +90,11 @@
     }
   }
 }
+
+.secondMenuWrapper {
+  transform: translateX(-20px);
+  width: 475px;
+  height: 502px;
+  display: flex;
+  flex-direction: column;
+}
