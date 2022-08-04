@@ -1,9 +1,11 @@
+import classNames from 'classnames';
 import styles from './Popper.module.scss';
 
-const $ = styles;
+const cx = classNames;
 
-function Popper({ children }) {
-  return <div className={$.wrapper}>{children}</div>;
+function Popper({ children, className }) {
+  const popperStyle = cx(styles.wrapper, className);
+  return <div className={popperStyle}>{children}</div>;
 }
 
 export { default as ProducPopper } from './ProducPopper';
