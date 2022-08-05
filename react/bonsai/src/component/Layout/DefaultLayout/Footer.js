@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Footer.module.scss';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const footer = [
   {
@@ -52,7 +55,7 @@ const footer = [
     ],
   },
   {
-    nane: 'free resoures',
+    name: 'free resoures',
     navies: [
       {
         name: 'Freelace Resoures',
@@ -90,26 +93,83 @@ const footer = [
       {
         name: 'Invoice Templates',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Invoice Generator',
+          'Blank Invoice Template',
+          'Consultant Invoice Template',
+          'Editable Invoice Template',
+          'Graphic Design Invoice',
+          'Web Design Invoice',
+          'Contractor Invoice Template',
+          'Photography Invoice Template',
+          'Self Employed Invoice Template',
+        ],
       },
       {
         name: 'Proposal Templates',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Website Proposal Template',
+          'Digital Marketing Proposal Template',
+          'Social Media Marketing Proposal',
+          'Graphic Design Proposal',
+          'Freelance Proposal Template',
+          'SEO Proposal Template',
+        ],
       },
       {
         name: 'Contact Templates',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Online Contract',
+          'Graphic Design Contract',
+          'Freelance Contract Template',
+          'Social Media Marketing Contract',
+          'Software Development Contract',
+          'Web Design Contract',
+          'Video Production Contract',
+          'Public Relations Contract',
+          'Translation Contract',
+        ],
       },
       {
         name: 'Agreement Templates',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Retainer Agreement Template',
+          'Influencer Agreement Template',
+          'Collaboration Agreement Template',
+          'Software Development Agreement',
+          'Marketing Agreement Template',
+        ],
       },
       {
         name: 'Scope of Work Templates',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Website Development Scope of Work',
+          'Digital Marketing Scope of Work',
+          'Consultant Statement of Work Template',
+          'Software Development Scope of Work',
+        ],
       },
       {
         name: 'Quote Templates',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Freelance Quotation Template',
+          'Web Design Quotation Template',
+          'Graphic Design Quotation Template',
+          'Interior Design Quotation Template',
+          'Video Production Quotation Template',
+          'Social Media Marketing Quotation',
+        ],
       },
       {
         name: 'Credit Note Templates',
@@ -163,6 +223,14 @@ const footer = [
       {
         name: 'Comparisons',
         link: '',
+        arrow: <FontAwesomeIcon icon={faChevronDown} />,
+        list: [
+          'Freshbooks Alternatives',
+          'Quickbooks Alternatives',
+          'Wave vs Quickbooks',
+          'Xero vs Quickbooks',
+          'Freshbooks vs Quickbooks',
+        ],
       },
     ],
   },
@@ -171,17 +239,35 @@ const footer = [
 const $ = styles;
 
 function Footer() {
+  const [currentList, setCurrentList] = useState(-1);
+  console.log(currentList);
   return (
     <div className={$.wrapper}>
       {footer.map((group, index) => {
         return (
-          <div key={index}>
+          <div key={index} className={$.group}>
             <h3>{group.name}</h3>
             {group.navies.map((navi, index) => {
+              let list;
+              if (navi.list)
+                list = navi.list.map((nav, i) => {
+                  return <a key={i}>{nav}</a>;
+                });
               return (
-                <Link to={navi.link} key={index}>
-                  {navi.name}
-                </Link>
+                <>
+                  <div
+                    key={index}
+                    onClick={() =>
+                      setCurrentList(currentList == index ? -1 : index)
+                    }
+                  >
+                    <Link to={navi.link}>{navi.name}</Link>
+                    {navi.arrow}
+                  </div>
+                  {currentList == index && (
+                    <div className={$.naviList}>{list}</div>
+                  )}
+                </>
               );
             })}
           </div>

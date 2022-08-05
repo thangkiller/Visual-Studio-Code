@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -18,6 +19,7 @@ import { Popper, ProducPopper } from '~/component/Popper';
 import styles from './Header.module.scss';
 
 const $ = styles;
+const cx = classNames;
 const templates = [
   {
     icon: <FontAwesomeIcon icon={faFileLines} />,
@@ -112,7 +114,7 @@ function Header() {
                   <Popper>
                     <div className={$.popperProduct}>
                       <div
-                        className={$.popperItem}
+                        className={cx($.popperItem, $.navigation__arrow)}
                         onMouseOver={() => setShownSecondMenu(true)}
                         onMouseOut={() => setShownSecondMenu(false)}
                       >
@@ -149,6 +151,7 @@ function Header() {
             </Tippy>
 
             <Tippy
+              visible
               interactive
               render={attrs => (
                 <div tabIndex="-1" {...attrs}>
@@ -184,7 +187,11 @@ function Header() {
                         {templates.map((template, index) => {
                           return (
                             <div
-                              className={$.item}
+                              className={cx(
+                                $.item,
+                                $.navigation__arrow,
+                                $.navigation__arrow__template
+                              )}
                               key={index}
                               onMouseOver={() => setCurrentTemplateIndex(index)}
                             >
