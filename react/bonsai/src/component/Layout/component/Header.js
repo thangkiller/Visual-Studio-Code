@@ -149,7 +149,6 @@ function Header() {
             </Tippy>
 
             <Tippy
-              visible
               interactive
               render={attrs => (
                 <div tabIndex="-1" {...attrs}>
@@ -169,13 +168,9 @@ function Header() {
                               <div className={$.items}>
                                 {currentTemplate.detail.map((item, i) => {
                                   return (
-                                    <div
-                                      className={$.item}
-                                      id={`i${i}`}
-                                      key={i}
-                                    >
+                                    <a className={$.item} key={i}>
                                       {item}
-                                    </div>
+                                    </a>
                                   );
                                 })}
                               </div>

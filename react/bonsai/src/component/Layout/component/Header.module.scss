@@ -114,19 +114,23 @@
     .item {
       width: 100%;
       padding: 28px 32px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: normal;
-      #i1 {
-        background-image: url(../../../);
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
       }
-      #i2 {
-        background-image: url(../../../asset/images/Featured\ Template\ #2.svg);
+      &:nth-child(1) {
+        background-image: url('../../../asset/images/Featured_Template_1.svg');
       }
-      #i3 {
-        background-image: url(../../../asset/images/Featured\ Template\ #3.svg);
+      &:nth-child(2) {
+        background-image: url('../../../asset/images/Featured_Template_2.svg');
       }
-      #i4 {
-        background-image: url(../../../asset/images/Featured\ Template\ #4.svg);
+      &:nth-child(3) {
+        background-image: url('../../../asset/images/Featured_Template_3.svg');
+      }
+      &:nth-child(4) {
+        background-image: url('../../../asset/images/Featured_Template_4.svg');
       }
     }
   }
@@ -137,5 +141,8 @@
     font-size: 15px;
     font-weight: 700;
     color: var(--primary-color);
+    &:hover {
+      color: var(--hover-button-color);
+    }
   }
 }
