@@ -93,6 +93,7 @@ const templates = [
 
 function Header() {
   const [shownSecondMenu, setShownSecondMenu] = useState(false);
+  const [currentTemplateIndex, setCurrentTemplateIndex] = useState(0);
 
   return (
     <div className={$.wrapper}>
@@ -157,20 +158,41 @@ function Header() {
                       visible
                       placement="right-end"
                       interactive
-                      render={attrs => (
-                        <div tabIndex="-1" {...attrs}>
-                          <Popper className={$.secondMenuWrapper}>
-                            {templates[2].detail.map(item => {
-                              return <div>{item}</div>;
-                            })}
-                          </Popper>
-                        </div>
-                      )}
+                      render={attrs => {
+                        const currentTemplate = templates[currentTemplateIndex];
+                        return (
+                          <div tabIndex="-1" {...attrs}>
+                            <Popper className={$.secondMenuWrapper}>
+                              <h3
+                                className={$.title}
+                              >{`Featured ${currentTemplate.name}`}</h3>
+                              <div className={$.items}>
+                                {currentTemplate.detail.map((item, i) => {
+                                  return (
+                                    <div
+                                      className={$.item}
+                                      id={`i${i}`}
+                                      key={i}
+                                    >
+                                      {item}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                              <div className={$.more}>See All Templates</div>
+                            </Popper>
+                          </div>
+                        );
+                      }}
                     >
                       <div className={$.popperTemplates}>
                         {templates.map((template, index) => {
                           return (
-                            <div className={$.item} key={index}>
+                            <div
+                              className={$.item}
+                              key={index}
+                              onMouseOver={() => setCurrentTemplateIndex(index)}
+                            >
                               {template.icon}
                               <div>{template.name}</div>
                             </div>

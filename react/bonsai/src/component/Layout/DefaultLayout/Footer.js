@@ -1,187 +1,191 @@
-import styles from "./Footer.module.scss";
+import { Link } from 'react-router-dom';
+import styles from './Footer.module.scss';
 
 const footer = [
   {
     name: 'product',
-    navies: [{
-      name: 'Proposals',
-      link: ''
-    },
-    {
-      name: 'Contacts',
-      link: ''
-    },
-    {
-      name: 'Invoicing',
-      link: ''
-    },
-    {
-      name: 'Client CRM',
-      link: ''
-    },
-    {
-      name: 'Time Tracking',
-      link: ''
-    },
-    {
-      name: 'Forms',
-      link: ''
-    },
-    {
-      name: 'Accounting',
-      link: ''
-    },
-    {
-      name: 'Bonsai Tax',
-      link: ''
-    },
-    {
-      name: 'Bonsai Cask',
-      link: ''
-    },
-    {
-      name: 'Pricing',
-      link: ''
-    },
-    {
-      name: 'Bonsai Reviews',
-      link: ''
-    }
-    ]
+    navies: [
+      {
+        name: 'Proposals',
+        link: '',
+      },
+      {
+        name: 'Contacts',
+        link: '',
+      },
+      {
+        name: 'Invoicing',
+        link: '',
+      },
+      {
+        name: 'Client CRM',
+        link: '',
+      },
+      {
+        name: 'Time Tracking',
+        link: '',
+      },
+      {
+        name: 'Forms',
+        link: '',
+      },
+      {
+        name: 'Accounting',
+        link: '',
+      },
+      {
+        name: 'Bonsai Tax',
+        link: '',
+      },
+      {
+        name: 'Bonsai Cask',
+        link: '',
+      },
+      {
+        name: 'Pricing',
+        link: '',
+      },
+      {
+        name: 'Bonsai Reviews',
+        link: '',
+      },
+    ],
   },
   {
     nane: 'free resoures',
     navies: [
       {
         name: 'Freelace Resoures',
-        link: ''
+        link: '',
       },
       {
         name: 'Freelace Blog by Bonsai',
-        link: ''
+        link: '',
       },
       {
         name: 'How to write a Contract',
-        link: ''
+        link: '',
       },
       {
         name: 'Online Signature Maker',
-        link: ''
+        link: '',
       },
       {
         name: 'Self-Employed Taxes Hub',
-        link: ''
+        link: '',
       },
       {
         name: 'Self-Emloyed Tax Calculator',
-        link: ''
+        link: '',
       },
       {
         name: 'Self-Employed Tax Deducations',
-        link: ''
+        link: '',
       },
-      ]
+    ],
   },
   {
     name: 'Templates',
     navies: [
       {
         name: 'Invoice Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Proposal Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Contact Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Agreement Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Scope of Work Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Quote Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Credit Note Templates',
-        link: ''
+        link: '',
       },
       {
         name: 'Estimate Templates',
-        link: ''
+        link: '',
       },
-     ]
+    ],
   },
   {
     name: 'bonsai',
     navies: [
       {
         name: 'About',
-        link: ''
+        link: '',
       },
       {
         name: 'Careers',
-        link: ''
+        link: '',
       },
       {
         name: 'Support',
-        link: ''
+        link: '',
       },
       {
         name: 'LinkedIn',
-        link: ''
+        link: '',
       },
       {
         name: 'Twitter',
-        link: ''
+        link: '',
       },
       {
         name: 'Privacy policy',
-        link: ''
+        link: '',
       },
       {
         name: 'Legal',
-        link: ''
+        link: '',
       },
       {
         name: 'Affiliates',
-        link: ''
+        link: '',
       },
       {
         name: 'Write for Us',
-        link: ''
+        link: '',
       },
       {
         name: 'Comparisons',
-        link: ''
+        link: '',
       },
-      ]
-  }
-]
+    ],
+  },
+];
 
 const $ = styles;
 
 function Footer() {
   return (
     <div className={$.wrapper}>
-      {footer.map( (group, index) => {
+      {footer.map((group, index) => {
         return (
-          <div key={index} >
+          <div key={index}>
             <h3>{group.name}</h3>
             {group.navies.map((navi, index) => {
               return (
-                <Link to={navi.link}>{navi.name}</Link>
-              )
+                <Link to={navi.link} key={index}>
+                  {navi.name}
+                </Link>
+              );
             })}
           </div>
-        )
+        );
       })}
     </div>
   );

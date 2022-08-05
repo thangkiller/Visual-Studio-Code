@@ -69,7 +69,7 @@
 }
 
 .popperTemplates {
-  padding: 10px 0 100px 0;
+  padding: 10px 0 91px 0;
   .item {
     margin: 15px 20px 15px 0;
     padding: 10px 55px 10px 45px;
@@ -94,7 +94,48 @@
 .secondMenuWrapper {
   transform: translateX(-20px);
   width: 475px;
-  height: 502px;
+  height: 494px;
   display: flex;
   flex-direction: column;
+  padding: 20px 44px 44px;
+  .title {
+    margin: 0 0 24px;
+    font-size: 22px;
+    font-weight: normal;
+    min-height: 26px;
+  }
+  .items {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    .item {
+      width: 100%;
+      padding: 28px 32px;
+      font-size: 15px;
+      font-weight: normal;
+      #i1 {
+        background-image: url(../../../);
+      }
+      #i2 {
+        background-image: url(../../../asset/images/Featured\ Template\ #2.svg);
+      }
+      #i3 {
+        background-image: url(../../../asset/images/Featured\ Template\ #3.svg);
+      }
+      #i4 {
+        background-image: url(../../../asset/images/Featured\ Template\ #4.svg);
+      }
+    }
+  }
+  .more {
+    width: 100%;
+    min-height: 22px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
 }
