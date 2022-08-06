@@ -151,7 +151,6 @@ function Header() {
             </Tippy>
 
             <Tippy
-              visible
               interactive
               render={attrs => (
                 <div tabIndex="-1" {...attrs}>

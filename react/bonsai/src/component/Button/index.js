@@ -8,6 +8,7 @@ function Button({
   to: linkGlobal,
   link: linkRouter,
   children,
+  className: fashion,
   white,
   small,
   big,
@@ -30,7 +31,7 @@ function Button({
     href,
     to,
   };
-  const wrapper = cx('wrapper', {
+  const wrapper = cx(fashion, 'wrapper', {
     ['wrapper--white']: white,
     ['wrapper--small']: small,
     ['wrapper--big']: big,
