@@ -1,7 +1,9 @@
 import Button from '~/component/Button';
-import { succeed } from '~/asset/images';
+import { succeed, With__Bonsai, Without__Bonsai } from '~/asset/images';
+import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 
+const cx = classNames.bind(styles);
 const $ = styles;
 
 function Home() {
@@ -22,6 +24,29 @@ function Home() {
         </div>
         <div className={$.image}>
           <img src={succeed} />
+        </div>
+      </div>
+      <div className={$.benefit}>
+        <div className={cx('blue_shape', 'blue_shape--benefit')}></div>
+        <div className={$.slogan}>
+          <h1>Make more, manage less</h1>
+          <p>
+            Bonsai integrates and automates every step of your business so it
+            runs seamlessly - from proposal to tax season.
+          </p>
+        </div>
+        <div className={$.illustration}>
+          <div className={$.illustration__item}>
+            <h3>Without Bonsai</h3>
+            <img
+              className={$.illustration__item_without}
+              src={Without__Bonsai}
+            />
+          </div>
+          <div className={$.illustration__item}>
+            <h3>With Bonsai</h3>
+            <img src={With__Bonsai} />
+          </div>
         </div>
       </div>
     </div>
