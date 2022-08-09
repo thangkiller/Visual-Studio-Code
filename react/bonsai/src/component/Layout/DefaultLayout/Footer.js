@@ -240,7 +240,6 @@ const $ = styles;
 
 function Footer() {
   const [currentList, setCurrentList] = useState(-1);
-  console.log(currentList);
   return (
     <div className={$.wrapper}>
       {footer.map((group, index) => {

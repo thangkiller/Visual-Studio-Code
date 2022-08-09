@@ -1,5 +1,5 @@
 export { default as Proposals } from './Proposals.png';
-export { default as Contract } from './Contract.png';
+export { default as Contact } from './Contact.png';
 export { default as Organzation } from './Organzation.png';
 export { default as Tracking } from './Tracking.png';
 export { default as Invoices } from './Invoices.png';
