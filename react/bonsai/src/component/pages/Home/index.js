@@ -192,6 +192,7 @@ const rates = [
 function Home() {
   const initialIndex = 0;
   const [sidebarShift, setSidebarShift] = useState(initialIndex);
+  const [cirleShift, setCirleShift] = useState(initialIndex);
   const currentContent = sidebar[sidebarShift].content;
   return (
     <div className={$.wrapper}>
@@ -269,7 +270,6 @@ function Home() {
       </div>
       <div className={$.network}>
         <div className={cx('blue_shape', 'blue_shape--network')}></div>
-
         <div className={$.header}>
           <h1>Trusted by 500k + self-employed worked and small business</h1>
           <p>
@@ -298,22 +298,50 @@ function Home() {
       </div>
       <div className={$.rates}>
         <h1>Don't just take it from us.</h1>
-        {rates.map((rate, index) => {
-          return (
-            <div className={$.rate} key={index}>
-              <div className={$.image}>
-                <img className={$.avatar} src={rate.avatar} />
-                <img className={$.icon} src={icon__comment} />
+        <div className={$.rate_container}>
+          {rates.map((rate, index) => {
+            const isAppearPair =
+              index === 2 * cirleShift || index === 2 * cirleShift + 1;
+            const rateStyle = cx('rate', {
+              disappear: !isAppearPair,
+            });
+            return (
+              <div className={rateStyle} key={index}>
+                <div className={$.image}>
+                  <img className={$.avatar} src={rate.avatar} alt="rate" />
+                  <img className={$.icon} src={icon__comment} alt="rate" />
+                </div>
+                <div className={$.comment}>{`"${rate.comment}"`}</div>
+                <div className={$.name}>{rate.name}</div>
+                <div className={$.job}>{rate.job}</div>
               </div>
-              <div className={$.comment}>{rate.comment}</div>
-              <div className={$.name}>{rate.name}</div>
-              <div className={$.job}>{rate.job}</div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
         <div className={$.more}>
-          <div className={$.circle}></div>
-          <div className={$.circle}></div>
+          {Array(rates.length / 2)
+            .fill()
+            .map((_, index) => {
+              const cirleStyle = cx('circle', {
+                circle__unchecked: index !== cirleShift,
+              });
+              return (
+                <div
+                  key={index}
+                  className={cirleStyle}
+                  onClick={() => setCirleShift(index)}
+                ></div>
+              );
+            })}
+        </div>
+      </div>
+      <div className={$.business}>
+        <p>
+          It’s <span>your</span> business.
+          <br /> We’re here to help it grow.
+        </p>
+        <div>
+          <Button>START FREE</Button>
         </div>
       </div>
     </div>
