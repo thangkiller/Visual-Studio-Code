@@ -13,6 +13,7 @@ const packs = [
     title: 'Starter',
     decription: 'Ideal for freelancers and contractors just starting out.',
     price: 24,
+    yearlyPrice: 17,
     features: [
       'All Templates',
       'Unlimited Clients & Projects',
@@ -28,6 +29,8 @@ const packs = [
     title: 'Professional',
     decription: 'Everything a growing independent business needs to thrive.',
     price: 39,
+    yearlyPrice: 32,
+    best: true,
     features: [
       'Everything in Starter plus...',
       'Custom Branding',
@@ -43,6 +46,7 @@ const packs = [
     title: 'Business',
     decription: 'The perfect package for small businesses and agencies.',
     price: 79,
+    yearlyPrice: 52,
     features: [
       'Everything in Starter and Professional plus...',
       'Subcontractor Management',
@@ -131,14 +135,19 @@ function Pricing() {
         </div>
         <div className={$.body}>
           {packs.map((pack, index) => {
+            const priceOption = option ? 'yearlyPrice' : 'price';
             return (
               <div className={$.pack} key={index}>
+                {pack.best && <div className={$.add_on}>most popular</div>}
                 <h3>{pack.title}</h3>
                 <p className={$.decription}>{pack.decription}</p>
-                <div className={$.price}>
-                  <div className={$.dolar}>$</div>
-                  <div className={$.main}>{pack.price}</div>
-                  <div className={$.unit}>/month</div>
+                <div className={$.price_container}>
+                  <div className={$.price}>
+                    <div className={$.dolar}>$</div>
+                    <div className={$.main}>{pack[priceOption]}</div>
+                    <div className={$.unit}>/month</div>
+                  </div>
+                  {option && <div className={$.bill_yearly}>Billed yearly</div>}
                 </div>
                 <div className={$.features}>
                   {pack.features.map((feature, index) => {
