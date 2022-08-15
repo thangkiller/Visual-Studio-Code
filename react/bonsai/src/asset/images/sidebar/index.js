@@ -5,3 +5,4 @@ export { default as Tracking } from './Tracking.png';
 export { default as Invoices } from './Invoices.png';
 export { default as Accounting } from './Accounting.png';
 export { default as Form } from './Form.png';
+export { default as ChevronRight } from './ChevronRight.js';
